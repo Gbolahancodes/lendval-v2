@@ -29,7 +29,7 @@ backend/__pycache__/
 # Machine Learning Models & Data
 backend/mlruns/
 backend/mlartifacts/
-backend/models/
+
 backend/data/raw/
 backend/data/processed/
 backend/reports/node_modules/

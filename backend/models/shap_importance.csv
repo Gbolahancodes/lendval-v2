@@ -1,0 +1,17 @@
+feature,mean_abs_shap
+alt_data_composite,1.8734006103593024
+income_x_alt_data,0.8421392089353495
+mobile_money_velocity,0.2208904595648969
+balance_stability_score,0.21261150130912593
+bill_payment_regularity,0.11372771657892039
+airtime_topup_frequency,0.1032584527700796
+age,0.0999033840658696
+loan_to_income_ratio,0.06972552525460192
+monthly_repayment_burden,0.06123798552435596
+income_log,0.053606344158924894
+post_loan_dti,0.04902743388311503
+geo_zone_encoded,0.023618476214080857
+informal_sector_flag,0.018641897061538525
+employment_type_encoded,0.018439774260766283
+gig_worker_flag,0.002372012240395635
+northern_zone_flag,0.0015212561174323487

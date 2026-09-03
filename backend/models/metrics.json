@@ -1,0 +1,8 @@
+{
+  "lgbm_roc_auc": 0.98505845017487,
+  "lgbm_avg_precision": 0.9046688373063329,
+  "lgbm_brier_score": 0.026922870359727357,
+  "lr_roc_auc": 0.9853719022647333,
+  "auc_lift": -0.0003134520898632198,
+  "best_iteration": 125
+}

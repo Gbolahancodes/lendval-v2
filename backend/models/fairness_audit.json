@@ -1,0 +1,157 @@
+{
+  "employment_type": {
+    "demographic_parity_difference": 0.0159,
+    "demographic_parity_ratio": 0.8686,
+    "equalized_odds_difference": 0.0309,
+    "group_stats": [
+      {
+        "group": "civil_servant",
+        "n": 3520,
+        "approval_rate": 0.8949,
+        "default_rate": 0.0759,
+        "avg_risk_score": 10.2,
+        "false_negative_rate": 0.0393
+      },
+      {
+        "group": "market_trader",
+        "n": 8810,
+        "approval_rate": 0.8902,
+        "default_rate": 0.0776,
+        "avg_risk_score": 10.92,
+        "false_negative_rate": 0.0421
+      },
+      {
+        "group": "gig_worker",
+        "n": 8632,
+        "approval_rate": 0.8843,
+        "default_rate": 0.077,
+        "avg_risk_score": 11.28,
+        "false_negative_rate": 0.0481
+      },
+      {
+        "group": "bank_staff",
+        "n": 1877,
+        "approval_rate": 0.8839,
+        "default_rate": 0.0815,
+        "avg_risk_score": 11.09,
+        "false_negative_rate": 0.047
+      },
+      {
+        "group": "artisan",
+        "n": 7075,
+        "approval_rate": 0.8817,
+        "default_rate": 0.0842,
+        "avg_risk_score": 11.65,
+        "false_negative_rate": 0.0457
+      },
+      {
+        "group": "informal_trader",
+        "n": 10319,
+        "approval_rate": 0.8798,
+        "default_rate": 0.0838,
+        "avg_risk_score": 11.81,
+        "false_negative_rate": 0.047
+      },
+      {
+        "group": "formal_private",
+        "n": 5892,
+        "approval_rate": 0.879,
+        "default_rate": 0.0838,
+        "avg_risk_score": 11.52,
+        "false_negative_rate": 0.0484
+      }
+    ],
+    "pass_dpd": "True",
+    "pass_eod": true
+  },
+  "gender": {
+    "demographic_parity_difference": 0.0305,
+    "demographic_parity_ratio": 0.7756,
+    "equalized_odds_difference": 0.002,
+    "group_stats": [
+      {
+        "group": "female",
+        "n": 30417,
+        "approval_rate": 0.8945,
+        "default_rate": 0.0695,
+        "avg_risk_score": 10.4,
+        "false_negative_rate": 0.045
+      },
+      {
+        "group": "male",
+        "n": 15708,
+        "approval_rate": 0.864,
+        "default_rate": 0.1024,
+        "avg_risk_score": 13.11,
+        "false_negative_rate": 0.047
+      }
+    ],
+    "pass_dpd": "True",
+    "pass_eod": true
+  },
+  "geo_zone": {
+    "demographic_parity_difference": 0.013,
+    "demographic_parity_ratio": 0.8953,
+    "equalized_odds_difference": 0.038,
+    "group_stats": [
+      {
+        "group": "NW",
+        "n": 4533,
+        "approval_rate": 0.8886,
+        "default_rate": 0.075,
+        "avg_risk_score": 11.02,
+        "false_negative_rate": 0.0465
+      },
+      {
+        "group": "Other",
+        "n": 9061,
+        "approval_rate": 0.8869,
+        "default_rate": 0.0779,
+        "avg_risk_score": 11.03,
+        "false_negative_rate": 0.0456
+      },
+      {
+        "group": "SS",
+        "n": 4669,
+        "approval_rate": 0.8863,
+        "default_rate": 0.082,
+        "avg_risk_score": 11.12,
+        "false_negative_rate": 0.0436
+      },
+      {
+        "group": "SW",
+        "n": 18986,
+        "approval_rate": 0.8849,
+        "default_rate": 0.0806,
+        "avg_risk_score": 11.29,
+        "false_negative_rate": 0.0449
+      },
+      {
+        "group": "NE",
+        "n": 973,
+        "approval_rate": 0.8777,
+        "default_rate": 0.0904,
+        "avg_risk_score": 12.02,
+        "false_negative_rate": 0.0452
+      },
+      {
+        "group": "NC",
+        "n": 5709,
+        "approval_rate": 0.8765,
+        "default_rate": 0.0844,
+        "avg_risk_score": 11.95,
+        "false_negative_rate": 0.0486
+      },
+      {
+        "group": "SE",
+        "n": 2194,
+        "approval_rate": 0.8756,
+        "default_rate": 0.0884,
+        "avg_risk_score": 12.0,
+        "false_negative_rate": 0.0475
+      }
+    ],
+    "pass_dpd": "True",
+    "pass_eod": true
+  }
+}
