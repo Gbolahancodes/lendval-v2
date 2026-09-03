@@ -1,4 +1,4 @@
-# CreditIQ Nigeria — Thin-File Credit Scoring Engine
+# Lendval Nigeria — Thin-File Credit Scoring Engine
 
 ML-powered credit scoring for Nigerian digital lenders. Scores "thin-file" borrowers
 using everyday financial behaviour (airtime, mobile money, bill payments) and explains
