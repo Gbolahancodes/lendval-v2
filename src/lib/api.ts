@@ -1,9 +1,10 @@
 import type { Applicant, ShapFeature } from "./scoring";
 import { scoreApplicant } from "./scoring";
 
-// Point this at your local FastAPI backend. Override with VITE_API_URL in a
-// .env file if you run the API on a different host/port.
-const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:8000/api/v1";
+// Normalize the URL so it always ends with /api/v1 without duplicate slashes
+const rawUrl = import.meta.env.VITE_API_URL ?? "http://localhost:8000/api/v1";
+const cleanUrl = rawUrl.replace(/\/+$/, "");
+const API_BASE = cleanUrl.endsWith("/api/v1") ? cleanUrl : `${cleanUrl}/api/v1`;
 
 export interface ScoreResult {
   score: number;
@@ -43,7 +44,7 @@ export async function predict(a: Applicant): Promise<ScoreResult> {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(toRequest(a)),
-      signal: AbortSignal.timeout(6000),
+      signal: AbortSignal.timeout(10000),
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const d = await res.json();
