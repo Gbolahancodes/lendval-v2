@@ -1,0 +1,12 @@
+# Training pipeline (extend requirements.txt)
+-r requirements.txt
+
+# Additional training deps
+mlflow==2.17.0
+onnxmltools==1.13.0
+skl2onnx==1.17.0
+evidently==0.4.33
+scipy==1.13.1
+kaggle==1.6.17
+matplotlib==3.9.2
+seaborn==0.13.2

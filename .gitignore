@@ -1,0 +1,37 @@
+# Node & Frontend
+node_modules/
+dist/
+build/
+.cache/
+.vite/
+vite.config.*.timestamp-*
+*.tsbuildinfo
+
+# Logs & Temp Files
+*-debug.log*
+logs/
+*.log
+.tmp-*
+.claude-replay.*
+
+# Secrets
+.env*
+
+# Platform & Plugins
+/.plugins/
+/.opencode-skills/
+
+# Backend & Python Environment
+backend/.venv/
+backend/__pycache__/
+*.pyc
+
+# Machine Learning Models & Data
+backend/mlruns/
+backend/mlartifacts/
+backend/models/
+backend/data/raw/
+backend/data/processed/
+backend/reports/node_modules/
+backend/.venv/
+backend/data/raw/*.csv
