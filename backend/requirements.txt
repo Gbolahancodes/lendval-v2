@@ -19,6 +19,4 @@ fairlearn==0.10.0
 
 # LLM assistant
 openai==1.51.0
-
-# Training only (not needed in production Docker image)
-# Separate install: pip install -r requirements-train.txt
+httpx<0.28.0
