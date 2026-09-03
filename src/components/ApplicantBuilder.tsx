@@ -53,7 +53,7 @@ export default function ApplicantBuilder() {
 
   const set = useCallback(<K extends keyof typeof form>(k: K, v: typeof form[K]) => {
     setForm((prev) => ({ ...prev, [k]: v }));
-    setResult(null); // inputs changed — require a fresh run
+    setResult(null);
   }, []);
 
   function applyPreset(idx: number) {
@@ -72,11 +72,11 @@ export default function ApplicantBuilder() {
   const favourable = result ? result.shap.filter((f) => f.value < -1).sort((a, b) => a.value - b.value).slice(0, 3) : [];
 
   return (
-    <div className="h-full grid grid-cols-[400px_1fr] overflow-hidden">
+    <div className="flex-1 flex flex-col lg:grid lg:grid-cols-[400px_1fr] lg:overflow-hidden">
       {/* LEFT — application form */}
-      <div className="on-panel bg-[#211E1A] text-[#EFE9DC] overflow-y-auto border-r-2 border-[#211E1A]">
-        <div className="px-6 py-5 space-y-6">
-          <div className="flex gap-1.5">
+      <div className="on-panel bg-[#211E1A] text-[#EFE9DC] lg:overflow-y-auto border-b-2 lg:border-b-0 lg:border-r-2 border-[#211E1A]">
+        <div className="px-4 sm:px-6 py-5 space-y-6">
+          <div className="flex flex-wrap gap-1.5">
             {PRESET_LABELS.map((label, i) => (
               <button key={label} onClick={() => applyPreset(i)}
                 className="px-2.5 py-1 rounded-sm text-[11px] border border-[rgba(239,233,220,0.18)] text-[#9A9284] hover:text-[#EFE9DC] hover:border-[rgba(239,233,220,0.4)] transition-colors">
@@ -85,7 +85,7 @@ export default function ApplicantBuilder() {
             ))}
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="text-[12px] text-[#9A9284] block mb-1.5">Name</label>
               <input type="text" value={form.name} onChange={(e) => set("name", e.target.value)} className={inkInput} />
@@ -116,7 +116,7 @@ export default function ApplicantBuilder() {
               onChange={(v) => set("loanAmount", v)} />
             <div>
               <label className="text-[12px] text-[#9A9284] block mb-1.5">Loan tenor</label>
-              <div className="flex gap-1.5">
+              <div className="flex flex-wrap gap-1.5">
                 {[3, 6, 9, 12, 18, 24].map((m) => (
                   <button key={m} onClick={() => set("loanTenorMonths", m)}
                     className="px-2.5 py-1 rounded-sm text-[11px] font-mono border transition-colors"
@@ -147,7 +147,7 @@ export default function ApplicantBuilder() {
           </div>
 
           <button onClick={run} disabled={loading}
-            className="w-full py-2.5 rounded-sm text-[13px] font-medium transition-colors"
+            className="w-full py-2.5 rounded-sm text-[13px] font-medium transition-colors cursor-pointer"
             style={{ background: GREEN, color: "#F4EFE4", opacity: loading ? 0.6 : 1 }}>
             {loading ? "Scoring…" : "Run assessment"}
           </button>
@@ -155,11 +155,11 @@ export default function ApplicantBuilder() {
       </div>
 
       {/* RIGHT — decision */}
-      <div className="overflow-y-auto bg-[#F4EFE4]">
-        <div className="max-w-[640px] px-8 py-8">
+      <div className="flex-1 overflow-y-auto bg-[#F4EFE4]">
+        <div className="max-w-[640px] px-4 sm:px-8 py-6 sm:py-8 mx-auto lg:mx-0">
           {!result ? (
-            <div className="h-full flex flex-col items-center justify-center text-center pt-24">
-              <div className="font-display italic text-[22px] text-[#A79E8D]">Awaiting assessment</div>
+            <div className="flex flex-col items-center justify-center text-center py-12 lg:pt-24">
+              <div className="font-display italic text-[20px] sm:text-[22px] text-[#A79E8D]">Awaiting assessment</div>
               <p className="text-[13px] text-[#6B6459] mt-2 max-w-xs">
                 Complete the applicant details and run the assessment to see the decision and the reasons behind it.
               </p>
@@ -167,7 +167,7 @@ export default function ApplicantBuilder() {
           ) : (
             <div className="space-y-6 animate-fade-in">
               <div className="flex items-baseline justify-between">
-                <div className="font-display text-[22px]" style={{ fontWeight: 500 }}>{form.name}</div>
+                <div className="font-display text-[20px] sm:text-[22px]" style={{ fontWeight: 500 }}>{form.name}</div>
                 <div className="ledger-label">
                   {result.source === "backend" ? "LightGBM model" : "in-browser model"}
                 </div>
@@ -176,7 +176,7 @@ export default function ApplicantBuilder() {
               <RiskGauge score={result.score} decision={result.decision} />
 
               {/* Why this decision */}
-              <div className="rounded-sm border border-[#DDD4C3] bg-[#FBF8F1] p-5">
+              <div className="rounded-sm border border-[#DDD4C3] bg-[#FBF8F1] p-4 sm:p-5">
                 <div className="ledger-label mb-3">Why this decision</div>
 
                 {adverse.length > 0 && (
@@ -187,7 +187,7 @@ export default function ApplicantBuilder() {
                         <div key={f.name} className="flex items-baseline justify-between gap-3">
                           <span className="text-[13px] text-[#211E1A]">{f.label}</span>
                           <span className="font-mono text-[11px] text-[#6B6459]">
-                            {typeof f.rawValue === 'number' ? f.rawValue.toFixed(2) : String(f.rawValue)} · +{f.value.toFixed(1)}
+                            {typeof f.rawValue === "number" ? f.rawValue.toFixed(2) : String(f.rawValue)} · +{f.value.toFixed(1)}
                           </span>
                         </div>
                       ))}
@@ -203,7 +203,7 @@ export default function ApplicantBuilder() {
                         <div key={f.name} className="flex items-baseline justify-between gap-3">
                           <span className="text-[13px] text-[#211E1A]">{f.label}</span>
                           <span className="font-mono text-[11px] text-[#6B6459]">
-                            {typeof f.rawValue === 'number' ? f.rawValue.toFixed(2) : String(f.rawValue)} · {f.value > 0 ? '+' : ''}{f.value.toFixed(1)}
+                            {typeof f.rawValue === "number" ? f.rawValue.toFixed(2) : String(f.rawValue)} · {f.value > 0 ? "+" : ""}{f.value.toFixed(1)}
                           </span>
                         </div>
                       ))}
@@ -217,19 +217,19 @@ export default function ApplicantBuilder() {
               </div>
 
               {/* Key numbers */}
-              <div className="flex gap-8 text-[13px]">
+              <div className="grid grid-cols-2 sm:flex sm:gap-8 gap-4 text-[13px]">
                 <div>
                   <div className="ledger-label">Monthly repayment</div>
-                  <div className="font-mono text-[16px] mt-1">₦{(form.loanAmount / form.loanTenorMonths).toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
+                  <div className="font-mono text-[15px] sm:text-[16px] mt-1">₦{(form.loanAmount / form.loanTenorMonths).toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
                 </div>
                 <div>
                   <div className="ledger-label">Loan-to-income</div>
-                  <div className="font-mono text-[16px] mt-1">{(form.loanAmount / form.monthlyIncome).toFixed(1)}×</div>
+                  <div className="font-mono text-[15px] sm:text-[16px] mt-1">{(form.loanAmount / form.monthlyIncome).toFixed(1)}×</div>
                 </div>
               </div>
 
               {/* Plain English Summary */}
-              <div className="rounded-sm border border-[#DDD4C3] bg-[#FBF8F1] p-5">
+              <div className="rounded-sm border border-[#DDD4C3] bg-[#FBF8F1] p-4 sm:p-5">
                 <div className="ledger-label mb-3">Decision Summary</div>
                 {result.reasonCodes && result.reasonCodes.length > 0 ? (
                   <ul className="list-disc pl-4 space-y-1.5 text-[13px] text-[#211E1A]">
@@ -247,7 +247,6 @@ export default function ApplicantBuilder() {
                   </p>
                 )}
               </div>
-
             </div>
           )}
         </div>
